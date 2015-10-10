@@ -57,15 +57,15 @@ RESULT PowerOn(void)
 
   /*** CNTR_PWDN = 0 ***/
   wRegVal = CNTR_FRES;
-  _SetCNTR(wRegVal);
+  _SetCNTR(wRegVal);								// force reset USB
 
   /*** CNTR_FRES = 0 ***/
   wInterrupt_Mask = 0;
-  _SetCNTR(wInterrupt_Mask);
+  _SetCNTR(wInterrupt_Mask);				// clear USB reset
   /*** Clear pending interrupts ***/
   _SetISTR(0);
   /*** Set interrupt mask ***/
-  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;
+  wInterrupt_Mask = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM;	// reset,suspend,wakeup
   _SetCNTR(wInterrupt_Mask);
 #endif /* STM32F10X_CL */
   

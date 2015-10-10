@@ -117,12 +117,12 @@ USB_OTG_Status;
 
 typedef struct USB_OTG_ep
 {
-  uint8_t        num;
-  uint8_t        is_in;
+  uint8_t        num;											// 端点号
+  uint8_t        is_in;										// in or out endpoint
   uint32_t       tx_fifo_num;
-  uint32_t       type;
+  uint32_t       type;										// 端点传输类型，控制传输、中断传输、批量传输、同步传输
   uint8_t        even_odd_frame;
-  uint32_t       maxpacket;
+  uint32_t       maxpacket;								// 最大数据包长度
   uint8_t        *xfer_buff;
   uint32_t       xfer_len;
   uint32_t       xfer_count;

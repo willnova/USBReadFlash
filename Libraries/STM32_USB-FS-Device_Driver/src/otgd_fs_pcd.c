@@ -50,6 +50,7 @@ void PCD_Init(void)
   ep->xfer_buff = 0;
   ep->xfer_len = 0;
 
+	// 设置所有in端点
   for (i = 1; i < NUM_TX_FIFOS ; i++)
   {
     ep = &USB_OTG_PCD_dev.in_ep[i-1];
@@ -65,7 +66,8 @@ void PCD_Init(void)
     ep->xfer_buff = 0;
     ep->xfer_len = 0;
   }
-
+	
+	// 设置所有out端点
   for (i = 1; i < NUM_TX_FIFOS; i++)
   {
     ep = &USB_OTG_PCD_dev.out_ep[i-1];
@@ -395,7 +397,7 @@ void  PCD_DevConnect(void)
   dctl.d32 = USB_OTG_READ_REG32(&USB_OTG_FS_regs.DEV->DCTL);
 
   /* Connect device */
-  dctl.b.sftdiscon  = 0;
+  dctl.b.sftdiscon  = 0;		// 产生设备连接事件
   USB_OTG_WRITE_REG32(&USB_OTG_FS_regs.DEV->DCTL, dctl.d32);
   mDELAY(25);
 }

@@ -57,7 +57,7 @@ void USB_Init(void)
   pProperty = &Device_Property;
   pUser_Standard_Requests = &User_Standard_Requests;
   /* Initialize devices one by one */
-  pProperty->Init();
+  pProperty->Init();				// 调用MASS_init函数进行初始化
 }
 
 /******************* (C) COPYRIGHT 2010 STMicroelectronics *****END OF FILE****/

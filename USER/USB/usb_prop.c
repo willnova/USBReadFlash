@@ -111,7 +111,7 @@ void MASS_init()
   PowerOn();
 
   /* Perform basic device initialization operations */
-  USB_SIL_Init();
+  USB_SIL_Init();			// Initialize the USB Device IP and the Endpoint 0
 
   bDeviceState = UNCONNECTED;
 }
