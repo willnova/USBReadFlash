@@ -101,10 +101,10 @@ USB_OTG_Status OTGD_FS_SetAddress(uint32_t BaseAddress)
   uint32_t i = 0;
   USB_OTG_Status status = USB_OTG_OK;
   USB_OTG_FS_regs.GREGS = (USB_OTG_GREGS *)(BaseAddress +\
-                           USB_OTG_CORE_GLOBAL_REGS_OFFSET);
+                           USB_OTG_CORE_GLOBAL_REGS_OFFSET);					
 
   USB_OTG_FS_regs.DEV    =  (USB_OTG_DEV  *)  (BaseAddress +\
-                           USB_OTG_DEV_GLOBAL_REG_OFFSET);
+                           USB_OTG_DEV_GLOBAL_REG_OFFSET);						
 
   for (i = 0; i < NUM_TX_FIFOS; i++)
   {
